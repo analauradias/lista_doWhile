@@ -14,20 +14,49 @@
 
     //Entrada
 
-    let idade = Number(prompt(`Informe sua idade:`));
-    let sexo = prompt(`Informe o seu sexo: M-Masculino ou F-Feminino.`).toLowerCase();
-    let salario = Number(prompt(`Informe seu salário:`));
+    let idade;
+    let sexo;
+    let salario;
+    let idadeT = [];
+    idadeT.sort((a, b) => a-b);
+    let masculino = [];
+    let feminino = [];
+    let vSalario = [];
+    let media = 0;
+    let menorIdade = [];
 
     //Processamento
 
-    while(idade > 0){
+    do {
         idade = Number(prompt(`Informe sua idade:`));
         sexo = prompt(`Informe o seu sexo: M-Masculino ou F-Feminino.`).toLowerCase();
         salario = Number(prompt(`Informe seu salário:`));
+    
+        idadeT.push(idade);
+        if (sexo === 'm') {
+            masculino.push(salario);
+        }
+        else if (sexo === 'f') {
+            feminino.push(salario);
+        }
+        vSalario.push(salario);
+
+        menorIdade[0] = menorIdade.reduce((menorSalario, valor) => {
+            return (valor < menorSalario) ? valor : menorSalario;
+        }, salario);
     }
+
+    while(idade > 0);
+
+    for (let s of vSalario) {
+        media = (media + s) / idadeT.length;
+    }
+
+
 
     //Saída
 
-    
+    document.write(`Média dos salários do grupo: R$ ${media.toFixed(2).replace(".",",")} <br> Menor idade: ${idadeT[0]} <br> Maior idade: ${idadeT[idadeT.length-1]} <br> Quantidade de mulheres: ${feminino.length}`)
+
 
 </script>
