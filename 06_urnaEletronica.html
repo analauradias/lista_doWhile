@@ -20,21 +20,41 @@
     */
 
     //Entrada
-
-    let eleitores = Number(prompt(`Insira a quantidade de eleitores`));
+    let voto = 1;
+    let joaozinho = 0;
+    let mariazinha = 0;
+    let nulo = 0;
+    let branco = 0;
+    let qtd = 0;
 
     //Processamento
+    while (voto != 0 && voto > 0 && voto <= 4) {
+    voto = Number(prompt(`Insira seu voto: 
+    1. Candidato Joãozinho
+    2. Candidato Mariazinha
+    3. Nulo
+    4. Branco`));
 
-    do {
-        
+    if(voto == 1){
+        joaozinho++;
+        qtd++;
+    } else if (voto == 2){
+        mariazinha++;
+        qtd++;
+    } else if (voto == 3){
+        nulo++;
+        qtd++;
+    } else if(voto == 4){
+        branco++;
+        qtd++;
+    }
     }
 
-    while (voto >= 0 && voto <= 4) {
-        
+    if (joaozinho>mariazinha) {
+        document.write(`Vencedor: Joãozinho! <br> Joãozino = ${joaozinho} voto(s) <br> Mariazinha: ${mariazinha} voto(s) <br> Votos nulos: ${(nulo*100)/qtd}% <br> Votos brancos: ${(branco*100)/qtd}%`);
+    } else {
+        document.write(`Vencedora: Mariazinha! <br> Joãozino = ${joaozinho} voto(s) <br> Mariazinha: ${mariazinha} voto(s) <br> Votos nulos: ${(nulo*100)/qtd}% <br> Votos brancos: ${(branco*100)/qtd}%`)
     }
-
     //Saída
-
+    
 </script>
-
-
